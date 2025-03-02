@@ -1,0 +1,44 @@
+.currency-rates-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.currency-rates-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.currency-rates-container .error {
+    color: red;
+    text-align: center;
+}
+
+.currency-rates-container pre {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.back-to-menu {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-to-menu button {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.back-to-menu button:hover {
+    background-color: #5a6268;
+}
