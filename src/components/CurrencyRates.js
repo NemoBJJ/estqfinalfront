@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react'; // ✅ Adicionando useCallback
 import { Link } from 'react-router-dom';
 import api from '../api';
 import './CurrencyRates.css';
@@ -9,7 +9,8 @@ const CurrencyRates = () => {
     const [baseCurrency, setBaseCurrency] = useState('BRL');
     const [loading, setLoading] = useState(false);
 
-    const fetchRates = async () => {
+    // ✅ Usando useCallback para memoizar a função fetchRates
+    const fetchRates = useCallback(async () => {
         setLoading(true);
         try {
             const response = await api.getExchangeRatesFromApi(baseCurrency);
@@ -20,11 +21,11 @@ const CurrencyRates = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [baseCurrency]); // ✅ Adicionando baseCurrency como dependência
 
     useEffect(() => {
         fetchRates();
-    }, [baseCurrency]);
+    }, [fetchRates]); // ✅ Adicionando fetchRates ao array de dependências
 
     return (
         <div className="currency-rates-container">

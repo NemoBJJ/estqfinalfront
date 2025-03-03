@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // Configuração do axios para a API de estoque
 const api = axios.create({
-    baseURL: 'http://3.217.55.187:8083/api', // URL base da sua API
+    baseURL: 'https://apistq.neemindev.com/api', // URL base da sua API
 });
 
-// Endpoints
-export default {
+// Exportando o objeto com um nome
+const apiEndpoints = {
     // Produtos
     listarProdutos: (currency) => api.get('/produtos', { params: { currency } }),
     criarProduto: (produto) => api.post('/produtos', produto),
@@ -44,3 +44,5 @@ export default {
     getExchangeRatesFromApi: () => api.get('/currency-rates/external'),
     getLatestRatesFromDatabase: () => api.get('/currency-rates/latest'),
 };
+
+export default apiEndpoints; // ✅ Exportando o objeto com um nome

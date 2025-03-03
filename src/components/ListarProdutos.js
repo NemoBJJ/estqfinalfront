@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react'; // ✅ Adicionando useCallback
 import { Link } from 'react-router-dom';
 import api from '../api';
 import './ListarProdutos.css';
@@ -7,18 +7,19 @@ const ListarProdutos = () => {
     const [produtos, setProdutos] = useState([]);
     const [currency, setCurrency] = useState('BRL');
 
-    const fetchProdutos = async () => {
+    // ✅ Usando useCallback para memoizar a função fetchProdutos
+    const fetchProdutos = useCallback(async () => {
         try {
             const response = await api.listarProdutos(currency);
             setProdutos(response.data);
         } catch (error) {
             console.error('Erro ao buscar produtos:', error);
         }
-    };
+    }, [currency]); // ✅ Adicionando currency como dependência
 
     useEffect(() => {
         fetchProdutos();
-    }, [currency]);
+    }, [fetchProdutos]); // ✅ Adicionando fetchProdutos ao array de dependências
 
     return (
         <div className="produtos-container">
