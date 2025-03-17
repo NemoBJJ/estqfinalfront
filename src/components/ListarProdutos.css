@@ -1,34 +1,42 @@
-ListarProdutos.css
-
+/* CONTAINER PRINCIPAL */
 .produtos-container {
-    max-width: 800px;
+    max-width: 1200px; /* Aumentei o espaço da tabela */
     margin: 0 auto;
     padding: 20px;
 }
 
+/* TÍTULO */
 .produtos-container h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
+/* TABELA */
 .produtos-container table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: auto; /* Permite ajuste automático das colunas */
 }
 
+/* COLUNAS E CÉLULAS */
 .produtos-container th,
 .produtos-container td {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     text-align: left;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
+/* HEADER DA TABELA */
 .produtos-container th {
     background-color: #007bff;
     color: white;
 }
 
+/* LINHAS ALTERNADAS */
 .produtos-container tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -37,19 +45,22 @@ ListarProdutos.css
     background-color: #f1f1f1;
 }
 
+/* BOTÕES */
 .produtos-container button {
-    padding: 5px 10px;
+    padding: 6px 12px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .produtos-container button:hover {
     background-color: #218838;
 }
 
+/* BOTÃO VOLTAR */
 .back-to-menu {
     text-align: center;
 }
@@ -65,4 +76,32 @@ ListarProdutos.css
 
 .back-to-menu button:hover {
     background-color: #5a6268;
+}
+
+/* RESPONSIVIDADE NO MOBILE */
+@media (max-width: 768px) {
+    .produtos-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* Ajuste para a tabela caber melhor no mobile */
+    .produtos-container table {
+        width: 100%;
+    }
+
+    .produtos-container th,
+    .produtos-container td {
+        padding: 6px; /* Reduz o espaçamento */
+        font-size: 0.75rem; /* Reduzindo fonte para encaixar melhor */
+    }
+
+    .produtos-container button {
+        font-size: 0.8rem; /* Reduzindo tamanho dos botões */
+        padding: 5px 10px;
+    }
+
+    .back-to-menu button {
+        font-size: 0.9rem;
+    }
 }
